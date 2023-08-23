@@ -1,4 +1,5 @@
-﻿using BlogProject.Business.Exceptions.Category;
+﻿using BlogProject.Business.Dtos.CategoryDtos;
+using BlogProject.Business.Exceptions.Category;
 using BlogProject.Business.Exceptions.Commons;
 using BlogProject.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -42,6 +43,12 @@ namespace BlogProject.API.Controllers
             { 
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }   
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post([FromForm]CategoryCreateDto dto)
+        {
+            await _categoryService.CreateAsync(dto);
+            return NoContent();
         }
     }
 }

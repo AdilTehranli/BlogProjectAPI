@@ -3,6 +3,7 @@ using BlogProject.Business.Services.Interfaces;
 using BlogProject.DAL.Context;
 using BlogProject.DAL.Repositories.Implements;
 using BlogProject.DAL.Repositories.Interfaces;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,10 @@ builder.Services.AddDbContext<BlogDBContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration["ConnectionStrings:MSSQL"]);
 
+});
+builder.Services.AddFluentValidation(opt =>
+{
+    opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
 });
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();

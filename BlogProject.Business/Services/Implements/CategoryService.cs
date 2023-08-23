@@ -1,4 +1,5 @@
-﻿using BlogProject.Business.Exceptions.Category;
+﻿using BlogProject.Business.Dtos.CategoryDtos;
+using BlogProject.Business.Exceptions.Category;
 using BlogProject.Business.Exceptions.Commons;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.Core.Entities;
@@ -14,6 +15,19 @@ public class CategoryService : ICategoryService
     public CategoryService(ICategoryRepository repository)
     {
         _repository = repository;
+    }
+
+    public async Task CreateAsync(CategoryCreateDto dto)
+    {
+        Category category = new Category()
+        {
+            Name = dto.Name,
+            LogoUrl = "123",
+            IsDeleted = false,
+
+        };
+      await _repository.CreateAsync(category);
+        await _repository.SaveAsync();
     }
 
     public async Task<IEnumerable<Category>> GetAllAsync()
