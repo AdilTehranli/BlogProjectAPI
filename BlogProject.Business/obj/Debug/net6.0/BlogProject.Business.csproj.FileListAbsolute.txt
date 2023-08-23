@@ -1,0 +1,17 @@
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.Business.deps.json
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.Business.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.Business.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.Core.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.DAL.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.DAL.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\bin\Debug\net6.0\BlogProject.Core.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.csproj.AssemblyReference.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.AssemblyInfoInputs.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.AssemblyInfo.cs
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.csproj.CoreCompileInputs.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.csproj.CopyComplete
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\refint\BlogProject.Business.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\BlogProject.Business.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Business\obj\Debug\net6.0\ref\BlogProject.Business.dll

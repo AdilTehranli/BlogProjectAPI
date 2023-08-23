@@ -1,0 +1,12 @@
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\bin\Debug\net6.0\BlogProject.Core.deps.json
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\bin\Debug\net6.0\BlogProject.Core.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\bin\Debug\net6.0\BlogProject.Core.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.csproj.AssemblyReference.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.AssemblyInfoInputs.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.AssemblyInfo.cs
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\refint\BlogProject.Core.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\BlogProject.Core.pdb
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.Core\obj\Debug\net6.0\ref\BlogProject.Core.dll
