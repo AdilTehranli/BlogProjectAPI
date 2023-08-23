@@ -1,4 +1,8 @@
+using BlogProject.Business.Services.Implements;
+using BlogProject.Business.Services.Interfaces;
 using BlogProject.DAL.Context;
+using BlogProject.DAL.Repositories.Implements;
+using BlogProject.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +18,9 @@ builder.Services.AddDbContext<BlogDBContext>(opt =>
     opt.UseSqlServer(builder.Configuration["ConnectionStrings:MSSQL"]);
 
 });
+builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
