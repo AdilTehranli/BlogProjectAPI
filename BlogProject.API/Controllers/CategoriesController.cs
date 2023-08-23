@@ -32,11 +32,11 @@ namespace BlogProject.API.Controllers
             catch (NegativeIdException ex)
             {
 
-                return BadRequest(ex.Message);
+                return BadRequest(new { ex.Message });
             }
             catch (CategoryException ex)
             {
-                return NotFound(ex.Message);
+                return NotFound(new { ex.Message });
             }  
             catch (Exception ex)
             { 

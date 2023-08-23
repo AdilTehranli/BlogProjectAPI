@@ -2,7 +2,7 @@
 
 public class CategoryException : Exception
 {
-    public CategoryException() : base("Category cannot be empty") { }
+    public CategoryException() : base("Category cannot be found") { }
    
 
     public CategoryException(string? message) : base(message)
