@@ -75,3 +75,4 @@ C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\obj\Debug\net6.0\ref\BlogPr
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\BlogProject.API.staticwebassets.runtime.json

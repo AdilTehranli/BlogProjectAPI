@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "EMzHGvAmpY9mKxvQeu7poPuDySJnHeep7HyR1OmBp3c=",
+  "Hash": "7jUyuZ1QBO5TYjhnP/JwHiPHsfBrdCswLfBRViE7lWo=",
   "Source": "BlogProject.API",
   "BasePath": "_content/BlogProject.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BlogProject.API\\wwwroot",
+      "Source": "BlogProject.API",
+      "ContentRoot": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\",
+      "BasePath": "_content/BlogProject.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

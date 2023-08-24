@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 
-namespace BlogProject.Business.ExtensionServices.Interfaces
+namespace BlogProject.Business.ExtensionServices.Interfaces;
+
+public interface IFileService
 {
-    internal interface IFileService
-    {
-    }
+    Task<string> UploadAsync(IFormFile file, string path, string contentType = "image", int mb = 2);
+    Task SaveAsync(IFormFile file, string path);
+    void Delete(string path);
 }

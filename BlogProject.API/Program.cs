@@ -1,3 +1,5 @@
+using BlogProject.Business.ExtensionServices.Implements;
+using BlogProject.Business.ExtensionServices.Interfaces;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.DAL.Context;
@@ -23,9 +25,10 @@ builder.Services.AddFluentValidation(opt =>
 {
     opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
 });
+
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddScoped<IFileService, FileService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

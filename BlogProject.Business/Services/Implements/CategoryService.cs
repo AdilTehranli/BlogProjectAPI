@@ -1,6 +1,7 @@
 ﻿using BlogProject.Business.Dtos.CategoryDtos;
 using BlogProject.Business.Exceptions.Category;
 using BlogProject.Business.Exceptions.Commons;
+using BlogProject.Business.ExtensionServices.Interfaces;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.Core.Entities;
 using BlogProject.DAL.Repositories.Interfaces;
@@ -11,10 +12,11 @@ namespace BlogProject.Business.Services.Implements;
 public class CategoryService : ICategoryService
 {
     readonly ICategoryRepository _repository;
-
-    public CategoryService(ICategoryRepository repository)
+    readonly IFileService _fileService;
+    public CategoryService(ICategoryRepository repository, IFileService fileService)
     {
         _repository = repository;
+        _fileService = fileService;
     }
 
     public async Task CreateAsync(CategoryCreateDto dto)
@@ -22,7 +24,7 @@ public class CategoryService : ICategoryService
         Category category = new Category()
         {
             Name = dto.Name,
-            LogoUrl = "123",
+            LogoUrl = await _fileService.UploadAsync(dto.Logo,Path.Combine("images","img")),
             IsDeleted = false,
 
         };
