@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7jUyuZ1QBO5TYjhnP/JwHiPHsfBrdCswLfBRViE7lWo=",
+  "Hash": "x/nsiKyEsg5QAh0jrJKIV0Br4WjcDMbbySi95pdIKO0=",
   "Source": "BlogProject.API",
   "BasePath": "_content/BlogProject.API",
   "Mode": "Default",
@@ -15,5 +15,23 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\176b1397-f2e1-41c8-a751-f23b15fea195.webp",
+      "SourceId": "BlogProject.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\",
+      "BasePath": "_content/BlogProject.API",
+      "RelativePath": "images/img/176b1397-f2e1-41c8-a751-f23b15fea195.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\img\\176b1397-f2e1-41c8-a751-f23b15fea195.webp"
+    }
+  ]
 }
