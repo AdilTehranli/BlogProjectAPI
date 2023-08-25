@@ -1,4 +1,5 @@
-﻿using BlogProject.Business.Dtos.CategoryDtos;
+﻿using AutoMapper;
+using BlogProject.Business.Dtos.CategoryDtos;
 using BlogProject.Business.Exceptions.Category;
 using BlogProject.Business.Exceptions.Commons;
 using BlogProject.Business.ExtensionServices.Interfaces;
@@ -13,10 +14,12 @@ public class CategoryService : ICategoryService
 {
     readonly ICategoryRepository _repository;
     readonly IFileService _fileService;
-    public CategoryService(ICategoryRepository repository, IFileService fileService)
+    readonly IMapper _mapper;
+    public CategoryService(ICategoryRepository repository, IFileService fileService, IMapper mapper)
     {
         _repository = repository;
         _fileService = fileService;
+        _mapper = mapper;
     }
 
     public async Task CreateAsync(CategoryCreateDto dto)
@@ -32,10 +35,15 @@ public class CategoryService : ICategoryService
         await _repository.SaveAsync();
     }
 
-    public async Task<IEnumerable<Category>> GetAllAsync()
+    public Task DeleteAsync(int id)
     {
-       return await _repository.GetAll().ToListAsync();
+        throw new NotImplementedException();
     }
+
+    //public async Task<IEnumerable<Category>> GetAllAsync()
+    //{
+    //   return await _repository.GetAll().ToListAsync();
+    //}
 
     public async Task<Category> GetByIdAsync(int id)
     {
@@ -43,5 +51,20 @@ public class CategoryService : ICategoryService
         var entity = await _repository.FindByIdAsync(id);
         if (entity == null) throw new CategoryException();
         return entity;
+    }
+
+    public Task UpdateAsync(CategoryUpdateDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
+   public async Task<IEnumerable<CategoryListItemDto>> GetAllAsync()
+    {
+       return _mapper.Map<IEnumerable<CategoryListItemDto>>(_repository.GetAll());
+    }
+
+    Task<CategoryDetailDto> ICategoryService.GetByIdAsync(int id)
+    {
+        throw new NotImplementedException();
     }
 }

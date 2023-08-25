@@ -1,5 +1,6 @@
 using BlogProject.Business.ExtensionServices.Implements;
 using BlogProject.Business.ExtensionServices.Interfaces;
+using BlogProject.Business.Profiles;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.DAL.Context;
@@ -25,6 +26,7 @@ builder.Services.AddFluentValidation(opt =>
 {
     opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
 });
+builder.Services.AddAutoMapper(typeof(CategoryMappingProfiles).Assembly);
 
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();

@@ -76,3 +76,5 @@ C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentVali
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\BlogProject.API.staticwebassets.runtime.json
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
