@@ -35,27 +35,20 @@ public class CategoryService : ICategoryService
         await _repository.SaveAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        var entity = await _ValidationCategory(id);
+        await _repository.DeleteAsync(entity);
+        await _repository.SaveAsync();
     }
 
-    //public async Task<IEnumerable<Category>> GetAllAsync()
-    //{
-    //   return await _repository.GetAll().ToListAsync();
-    //}
 
-    public async Task<Category> GetByIdAsync(int id)
+    public async Task UpdateAsync(int id,CategoryUpdateDto dto)
     {
-        if (id <= 0) throw new NegativeIdException();
-        var entity = await _repository.FindByIdAsync(id);
-        if (entity == null) throw new CategoryException();
-        return entity;
-    }
-
-    public Task UpdateAsync(CategoryUpdateDto dto)
-    {
-        throw new NotImplementedException();
+        var entity = await _ValidationCategory(id);
+        _mapper.Map(dto, entity);
+        entity.LogoUrl = await _fileService.UploadAsync(dto.Logo, Path.Combine("images", "img"));
+        await _repository.SaveAsync();
     }
 
    public async Task<IEnumerable<CategoryListItemDto>> GetAllAsync()
@@ -63,8 +56,16 @@ public class CategoryService : ICategoryService
        return _mapper.Map<IEnumerable<CategoryListItemDto>>(_repository.GetAll());
     }
 
-    Task<CategoryDetailDto> ICategoryService.GetByIdAsync(int id)
+   public async Task<CategoryDetailDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var entity = await _ValidationCategory(id);
+        return  _mapper.Map<CategoryDetailDto>(entity);
+    }
+    async Task<Category> _ValidationCategory(int id)
+    {
+        if (id <= 0) throw new NegativeIdException();
+        var entity = await _repository.FindByIdAsync(id);
+        if (entity == null) throw new CategoryException();
+        return entity;
     }
 }

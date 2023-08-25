@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\images\\img\\176b1397-f2e1-41c8-a751-f23b15fea195.webp"
     },
     {
+      "Id": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\43375273-f241-463f-8448-134ed625e63d.png",
+      "PackagePath": "staticwebassets\\images\\img\\43375273-f241-463f-8448-134ed625e63d.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\8c2c94b1-bf0e-4a07-a0bf-4e43419171b4.png",
+      "PackagePath": "staticwebassets\\images\\img\\8c2c94b1-bf0e-4a07-a0bf-4e43419171b4.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\e7aa177b-5c14-4b3c-a58d-b05320001cb3.png",
+      "PackagePath": "staticwebassets\\images\\img\\e7aa177b-5c14-4b3c-a58d-b05320001cb3.png"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BlogProject.API.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

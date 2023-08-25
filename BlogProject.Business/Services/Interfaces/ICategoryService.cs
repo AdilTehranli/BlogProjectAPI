@@ -8,6 +8,6 @@ public interface ICategoryService
     Task<IEnumerable<CategoryListItemDto>> GetAllAsync();
     Task<CategoryDetailDto> GetByIdAsync(int id);
     Task CreateAsync(CategoryCreateDto dto);
-    Task UpdateAsync(CategoryUpdateDto dto);
+    Task UpdateAsync(int id,CategoryUpdateDto dto);
     Task DeleteAsync(int id);
 }

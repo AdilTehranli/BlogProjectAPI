@@ -10,6 +10,6 @@ public class CategoryMappingProfiles:Profile
         CreateMap<Category, CategoryDetailDto>();
         CreateMap<Category, CategoryListItemDto>();
         CreateMap<CategoryCreateDto, Category>();
-        CreateMap<CategoryDetailDto,Category>();
+        CreateMap<CategoryUpdateDto,Category>();
     }
 }

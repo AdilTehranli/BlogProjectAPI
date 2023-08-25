@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x/nsiKyEsg5QAh0jrJKIV0Br4WjcDMbbySi95pdIKO0=",
+  "Hash": "//J55wGVJx7KABp+Zm4Pe2Sy7cLNbAroqakF9TzUzf8=",
   "Source": "BlogProject.API",
   "BasePath": "_content/BlogProject.API",
   "Mode": "Default",
@@ -32,6 +32,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\img\\176b1397-f2e1-41c8-a751-f23b15fea195.webp"
+    },
+    {
+      "Identity": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\43375273-f241-463f-8448-134ed625e63d.png",
+      "SourceId": "BlogProject.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\",
+      "BasePath": "_content/BlogProject.API",
+      "RelativePath": "images/img/43375273-f241-463f-8448-134ed625e63d.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\img\\43375273-f241-463f-8448-134ed625e63d.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\8c2c94b1-bf0e-4a07-a0bf-4e43419171b4.png",
+      "SourceId": "BlogProject.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\",
+      "BasePath": "_content/BlogProject.API",
+      "RelativePath": "images/img/8c2c94b1-bf0e-4a07-a0bf-4e43419171b4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\img\\8c2c94b1-bf0e-4a07-a0bf-4e43419171b4.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\images\\img\\e7aa177b-5c14-4b3c-a58d-b05320001cb3.png",
+      "SourceId": "BlogProject.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\c#-ASP.NET\\BlogProject\\BlogProject.API\\wwwroot\\",
+      "BasePath": "_content/BlogProject.API",
+      "RelativePath": "images/img/e7aa177b-5c14-4b3c-a58d-b05320001cb3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\img\\e7aa177b-5c14-4b3c-a58d-b05320001cb3.png"
     }
   ]
 }

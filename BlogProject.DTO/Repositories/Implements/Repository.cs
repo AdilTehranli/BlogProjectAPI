@@ -22,6 +22,11 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
          await Table.AddAsync(entity);
     }
 
+    public async Task DeleteAsync(TEntity entity)
+    {
+       _context.Remove(entity);
+    }
+
     public  IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>> expression)
     {
        return  Table.Where(expression);
