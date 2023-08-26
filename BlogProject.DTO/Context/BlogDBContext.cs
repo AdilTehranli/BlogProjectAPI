@@ -1,11 +1,12 @@
 ﻿using BlogProject.Core.Entities;
 using BlogProject.DAL.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace BlogProject.DAL.Context;
 
-public class BlogDBContext : DbContext
+public class BlogDBContext : IdentityDbContext
 {
     public BlogDBContext(DbContextOptions options) : base(options)
     {

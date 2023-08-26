@@ -1,12 +1,15 @@
+using BlogProject.Business;
 using BlogProject.Business.ExtensionServices.Implements;
 using BlogProject.Business.ExtensionServices.Interfaces;
 using BlogProject.Business.Profiles;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
+using BlogProject.Core.Entities;
 using BlogProject.DAL.Context;
 using BlogProject.DAL.Repositories.Implements;
 using BlogProject.DAL.Repositories.Interfaces;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,11 +29,15 @@ builder.Services.AddFluentValidation(opt =>
 {
     opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
 });
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = false;
+}).AddDefaultTokenProviders().AddEntityFrameworkStores<BlogDBContext>();
+
 builder.Services.AddAutoMapper(typeof(CategoryMappingProfiles).Assembly);
 
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
