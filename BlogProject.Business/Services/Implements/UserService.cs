@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Dtos.UserDtos;
 using BlogProject.Business.Exceptions.User;
+using BlogProject.Business.ExternalServices.Interfaces;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.Core.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -17,33 +18,23 @@ public class UserService : IUserService
 {
     readonly UserManager<AppUser> _userManager;
     readonly IMapper _mapper;
-    readonly IConfiguration _configuration;
+    readonly ITokenService _tokenService;
 
-    public UserService(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration)
+    public UserService(UserManager<AppUser> userManager, IMapper mapper, ITokenService tokenService)
     {
         _userManager = userManager;
         _mapper = mapper;
-        _configuration = configuration;
+        _tokenService = tokenService;
     }
 
-    public async Task<string> Login(LoginDto dto)
+    public async Task<TokenResponceDto> Login(LoginDto dto)
     {
         var user = await _userManager.FindByNameAsync(dto.UserName);
         if (user == null) throw new LoginFailedException("Username or password is not exist");
         var result = await _userManager.CheckPasswordAsync(user, dto.Password);
         if (result == null) throw new LoginFailedException("Username is not exist");
-        List<Claim> claims = new List<Claim>()
-        {
-            new Claim(ClaimTypes.Name,user.UserName),
-            new Claim(ClaimTypes.NameIdentifier,user.Id)
-    };
-        SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecurityKey"]));
-        SigningCredentials signing = new SigningCredentials(securityKey,SecurityAlgorithms.HmacSha256);
-        JwtSecurityToken jwtSecurity = new JwtSecurityToken(_configuration["Jwt:Issuer"], _configuration["Jwt:Audiance"]
-            ,claims,DateTime.UtcNow,DateTime.UtcNow.AddMinutes(60),signing);
-      JwtSecurityTokenHandler securityTokenHandler = new JwtSecurityTokenHandler();
-      string token=  securityTokenHandler.WriteToken(jwtSecurity);
-        return token;
+       
+        return _tokenService.CreateToken(user);
     }
 
     public async Task Register(RegisterDto dto)

@@ -89,3 +89,4 @@ C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\Microsoft.
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\User\c#-ASP.NET\BlogProject\BlogProject.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

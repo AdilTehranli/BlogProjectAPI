@@ -2,6 +2,7 @@
 using BlogProject.Business.Exceptions.Category;
 using BlogProject.Business.Exceptions.Commons;
 using BlogProject.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace BlogProject.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         readonly ICategoryService _categoryService;
