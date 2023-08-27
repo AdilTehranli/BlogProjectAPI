@@ -1,9 +1,6 @@
 using BlogProject.Business;
-using BlogProject.Business.ExtensionServices.Implements;
-using BlogProject.Business.ExtensionServices.Interfaces;
 using BlogProject.Business.Profiles;
 using BlogProject.Business.Services.Implements;
-using BlogProject.Business.Services.Interfaces;
 using BlogProject.Core.Entities;
 using BlogProject.DAL.Context;
 using BlogProject.DAL.Repositories.Implements;

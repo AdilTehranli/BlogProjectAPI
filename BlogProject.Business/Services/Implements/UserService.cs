@@ -33,7 +33,7 @@ public class UserService : IUserService
         if (user == null) throw new LoginFailedException("Username or password is not exist");
         var result = await _userManager.CheckPasswordAsync(user, dto.Password);
         if (result == null) throw new LoginFailedException("Username is not exist");
-       
+
         return _tokenService.CreateToken(user);
     }
 
