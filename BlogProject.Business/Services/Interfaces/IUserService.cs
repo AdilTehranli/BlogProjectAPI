@@ -5,4 +5,5 @@ namespace BlogProject.Business.Services.Interfaces;
 public interface IUserService
 {
     Task Register(RegisterDto dto);
+    Task<string> Login(LoginDto dto);
 }

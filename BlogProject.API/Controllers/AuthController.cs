@@ -11,7 +11,7 @@ namespace BlogProject.API.Controllers
     {
         readonly IUserService _service;
         public AuthController(IUserService service)
-        {
+        { 
             _service = service;
         }
         [HttpPost("[action]")]
@@ -19,6 +19,12 @@ namespace BlogProject.API.Controllers
         {
            await  _service.Register(dto);
             return NoContent();
+        }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> Login(LoginDto dto)
+        {
+           
+            return Ok(await _service.Login(dto));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace BlogProject.Business;
 
 public static class ServiceRegistration
 {
-    public static void AddServices(this IServiceCollection services) 
+    public static void AddServices(this IServiceCollection services)
     {
         services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IFileService, FileService>();

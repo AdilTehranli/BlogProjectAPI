@@ -29,13 +29,13 @@ builder.Services.AddFluentValidation(opt =>
 {
     opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
 });
+
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
     opt.Password.RequireNonAlphanumeric = false;
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<BlogDBContext>();
 
 builder.Services.AddAutoMapper(typeof(CategoryMappingProfiles).Assembly);
-
 builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 builder.Services.AddServices();
 var app = builder.Build();
