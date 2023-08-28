@@ -2,6 +2,7 @@ using BlogProject.Business;
 using BlogProject.Business.Profiles;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Core.Entities;
+using BlogProject.DAL;
 using BlogProject.DAL.Context;
 using BlogProject.DAL.Repositories.Implements;
 using BlogProject.DAL.Repositories.Interfaces;
@@ -64,7 +65,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 }).AddDefaultTokenProviders().AddEntityFrameworkStores<BlogDBContext>();
 
 builder.Services.AddAutoMapper(typeof(CategoryMappingProfiles).Assembly);
-builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddAuthentication(opt =>
 {

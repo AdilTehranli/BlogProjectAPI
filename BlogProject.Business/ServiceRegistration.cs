@@ -18,6 +18,7 @@ public static class ServiceRegistration
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRoleService, UserRoleService>();
+        services.AddScoped<IBlogService, BlogService>();
 
     }
 }
