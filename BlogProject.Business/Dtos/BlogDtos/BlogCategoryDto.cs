@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlogProject.Business.Dtos.CategoryDtos;
 
-namespace BlogProject.Business.Dtos.BlogDtos
+namespace BlogProject.Business.Dtos.BlogDtos;
+
+public class BlogCategoryDto
 {
-    internal class BlogCategoryDto
-    {
-    }
+    public CategoryListItemDto Category { get; set; }
 }

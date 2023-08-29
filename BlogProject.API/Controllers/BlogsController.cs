@@ -1,4 +1,5 @@
-﻿using BlogProject.Business.Services.Implements;
+﻿using BlogProject.Business.Dtos.BlogDtos;
+using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,20 @@ public BlogsController(IBlogService blogService)
         public async Task<IActionResult> Get()
         {
             return Ok(await _blogService.GetAllAsync());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Post(BlogCreateDto dto)
+        {
+            try
+            {
+                await _blogService.CreateAsync(dto);
+                return Ok(); 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

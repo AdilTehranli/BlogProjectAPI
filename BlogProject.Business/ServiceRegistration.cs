@@ -4,6 +4,7 @@ using BlogProject.Business.ExternalServices.Implements;
 using BlogProject.Business.ExternalServices.Interfaces;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 
@@ -19,6 +20,8 @@ public static class ServiceRegistration
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRoleService, UserRoleService>();
         services.AddScoped<IBlogService, BlogService>();
+        services.AddHttpContextAccessor();
+
 
     }
 }

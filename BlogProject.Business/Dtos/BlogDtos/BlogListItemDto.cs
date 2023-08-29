@@ -1,4 +1,5 @@
-﻿using BlogProject.Business.Dtos.UserAuthDtos;
+﻿using BlogProject.Business.Dtos.CategoryDtos;
+using BlogProject.Business.Dtos.UserAuthDtos;
 using BlogProject.Core.Entities;
 
 namespace BlogProject.Business.Dtos.BlogDtos;
@@ -13,5 +14,6 @@ public class BlogListItemDto
     public bool IsDeleted { get; set; }
     public DateTime CreatedTime { get; set; }
     public AuthorDto AppUser { get; set; }
-    public IEnumerable<Category> Categories { get; set; }
+    //public IEnumerable<CategoryListItemDto> Categories { get; set; }
+    public IEnumerable<BlogCategoryDto> BlogCategories { get; set; }
 }

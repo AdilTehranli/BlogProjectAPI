@@ -75,14 +75,14 @@ builder.Services.AddAuthentication(opt =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters()
     {
-        ValidateIssuer= true,
-        ValidateAudience= true,
-        ValidateLifetime= true,
-        ValidateIssuerSigningKey= true,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audiance"],
-       LifetimeValidator=(_,expires,token,_) =>token !=null ? DateTime.UtcNow<expires : false,
-       IssuerSigningKey= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecurityKey"]))
+        LifetimeValidator = (_, expires, token, _) => token != null ? DateTime.UtcNow < expires : false,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecurityKey"]))
     };
 });
 builder.Services.AddAuthorization();

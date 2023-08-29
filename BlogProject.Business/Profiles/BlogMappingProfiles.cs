@@ -13,5 +13,6 @@ public class BlogMappingProfiles:Profile
         CreateMap<Blog, BlogListItemDto>();
         CreateMap<BlogCreateDto, Blog>();
         CreateMap<BlogUpdateDto, Blog>();
+        CreateMap<BlogCategory, BlogCategoryDto>();
     }
 }

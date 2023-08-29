@@ -44,7 +44,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         {
             query = query.Include(item);
         }
-        return query
+        return query;
     }
 
     public async Task<TEntity> GetSingleAsync(Expression<Func<TEntity, bool>> expression)
