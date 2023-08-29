@@ -13,6 +13,8 @@ public interface IRepository<TEntity> where TEntity : BaseEntity, new()
     public Task<TEntity> FindByIdAsync(int id);
     public Task<bool> IsExist(Expression<Func<TEntity, bool>> expression);
     public Task CreateAsync(TEntity entity);
+    public void SoftDelete(TEntity entity);
+    public void ReverceSoftDelete(TEntity entity);
     public Task DeleteAsync(TEntity entity);
     public Task SaveAsync();
 }

@@ -57,10 +57,19 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return await Table.AnyAsync(expression);
     }
 
+    public async void ReverceSoftDelete(TEntity entity)
+    {
+      entity.IsDeleted = false;
+    }
+
     public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
     }
 
+    public void SoftDelete(TEntity entity)
+    {
+      entity.IsDeleted = true;
+    }
 }
 

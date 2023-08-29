@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BlogProject.Business.Dtos.BlogDtos;
+using BlogProject.Business.Exceptions.Commons;
 using BlogProject.Business.Services.Interfaces;
 using BlogProject.Core.Entities;
 using BlogProject.DAL.Repositories.Interfaces;
@@ -47,9 +48,16 @@ public class BlogService : IBlogService
         await _blogRepository.SaveAsync();
     }
 
-    public Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+
+        if (string.IsNullOrEmpty(UserId)) throw new ArgumentNullException();
+        if (!await _userManager.Users.AnyAsync(u => u.Id == UserId)) throw new ArgumentException();
+        var entity = await _blogRepository.FindByIdAsync(id);
+        if (entity != null) throw new NotFoundException<Blog>();
+        if(entity.AppUserId!=UserId) throw new ArgumentException();
+        _blogRepository.SoftDelete(entity);
+        await _blogRepository.SaveAsync();
     }
 
     public async Task<IEnumerable<BlogListItemDto>> GetAllAsync()
@@ -59,9 +67,13 @@ public class BlogService : IBlogService
         return _mapper.Map<IEnumerable<BlogListItemDto>>(entity); 
     }
 
-    public Task<BlogDetailDto> GetByIdAsync(int id)
+    public async Task<BlogDetailDto> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var entity = await _blogRepository.FindByIdAsync(id);
+        if (entity != null) throw new NotFoundException<Blog>();
+        entity.ViewewCount++;
+        await _blogRepository.SaveAsync();
+        return _mapper.Map<BlogDetailDto>(entity);
     }
 
     public Task UpdateAsync(int id, BlogUpdateDto dto)

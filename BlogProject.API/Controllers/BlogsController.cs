@@ -1,6 +1,7 @@
 ﻿using BlogProject.Business.Dtos.BlogDtos;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +22,20 @@ public BlogsController(IBlogService blogService)
         {
             return Ok(await _blogService.GetAllAsync());
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await _blogService.GetByIdAsync(id));
+        }
+        [HttpDelete("{id}")]
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _blogService.DeleteAsync(id);
+            return StatusCode(StatusCodes.Status202Accepted);
+        }
         [HttpPost]
+
         public async Task<IActionResult> Post(BlogCreateDto dto)
         {
             try
