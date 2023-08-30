@@ -1,3 +1,4 @@
+using BlogProject.API.Helpers;
 using BlogProject.Business;
 using BlogProject.Business.Profiles;
 using BlogProject.Business.Services.Implements;
@@ -101,6 +102,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCustomExceptionHandler();
 
 app.MapControllers();
 

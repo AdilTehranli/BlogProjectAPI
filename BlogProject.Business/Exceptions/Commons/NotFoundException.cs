@@ -1,12 +1,20 @@
-﻿namespace BlogProject.Business.Exceptions.Commons;
+﻿using Microsoft.AspNetCore.Http;
 
-public class NotFoundException<T> : Exception where T : class
+namespace BlogProject.Business.Exceptions.Commons;
+
+public class NotFoundException<T> : Exception,IBaseException where T : class
 {
-    public NotFoundException() : base(typeof(T).Name + "Not Found") 
+    public int StatusCode => StatusCodes.Status404NotFound;
+    public string ErrorMessage { get;}
+    public NotFoundException() : base() 
     {
+        ErrorMessage = typeof(T).Name + "Not Found";
     }
 
     public NotFoundException(string? message) : base(message)
     {
+        ErrorMessage = message;
     }
+
+
 }

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace BlogProject.Business.Exceptions.Commons;
 
-namespace BlogProject.Business.Exceptions.Commons
+public interface IBaseException
 {
-    internal interface IBaseException
-    {
-    }
+    public int StatusCode { get;  }
+    public string ErrorMessage { get; }
 }

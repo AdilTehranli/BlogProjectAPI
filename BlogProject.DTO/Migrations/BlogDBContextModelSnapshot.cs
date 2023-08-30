@@ -41,7 +41,7 @@ namespace BlogProject.DAL.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 28, 12, 30, 23, 731, DateTimeKind.Utc).AddTicks(4302));
+                        .HasDefaultValue(new DateTime(2023, 8, 29, 18, 58, 24, 220, DateTimeKind.Utc).AddTicks(2748));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -114,6 +114,47 @@ namespace BlogProject.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("BlogProject.Core.Entities.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2023, 8, 29, 18, 58, 24, 220, DateTimeKind.Utc).AddTicks(3684));
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -370,6 +411,31 @@ namespace BlogProject.DAL.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("BlogProject.Core.Entities.Comment", b =>
+                {
+                    b.HasOne("BlogProject.Core.Entities.AppUser", "AppUser")
+                        .WithMany("Comments")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlogProject.Core.Entities.Blog", "Blog")
+                        .WithMany("Comments")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("BlogProject.Core.Entities.Comment", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Blog");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -424,6 +490,8 @@ namespace BlogProject.DAL.Migrations
             modelBuilder.Entity("BlogProject.Core.Entities.Blog", b =>
                 {
                     b.Navigation("BlogCategories");
+
+                    b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("BlogProject.Core.Entities.Category", b =>
@@ -431,9 +499,16 @@ namespace BlogProject.DAL.Migrations
                     b.Navigation("BlogCategories");
                 });
 
+            modelBuilder.Entity("BlogProject.Core.Entities.Comment", b =>
+                {
+                    b.Navigation("Children");
+                });
+
             modelBuilder.Entity("BlogProject.Core.Entities.AppUser", b =>
                 {
                     b.Navigation("Blogs");
+
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

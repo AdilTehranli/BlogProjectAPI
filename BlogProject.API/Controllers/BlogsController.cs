@@ -12,9 +12,11 @@ namespace BlogProject.API.Controllers
     public class BlogsController : ControllerBase
     {
         readonly IBlogService _blogService;
-public BlogsController(IBlogService blogService)
+        readonly ICommentService _commentService;
+        public BlogsController(IBlogService blogService, ICommentService commentService)
         {
             _blogService = blogService;
+            _commentService = commentService;
         }
 
         [HttpGet]

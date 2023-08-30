@@ -52,7 +52,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
         return await Table.SingleOrDefaultAsync(expression);
     }
 
-    public async Task<bool> IsExist(Expression<Func<TEntity, bool>> expression)
+    public async Task<bool> IsExistAsync(Expression<Func<TEntity, bool>> expression)
     {
         return await Table.AnyAsync(expression);
     }

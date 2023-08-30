@@ -10,6 +10,7 @@ public class Blog:BaseEntity
     public DateTime CreatedTime { get; set; }
     public AppUser AppUser { get; set; }
     public IEnumerable<BlogCategory> BlogCategories { get; set; }
+    public List<Comment> Comments { get; set; }
 
 
 }

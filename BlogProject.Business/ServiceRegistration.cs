@@ -20,6 +20,7 @@ public static class ServiceRegistration
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRoleService, UserRoleService>();
         services.AddScoped<IBlogService, BlogService>();
+        services.AddScoped<ICommentService,CommentService>();
         services.AddHttpContextAccessor();
 
 
