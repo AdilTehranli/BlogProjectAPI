@@ -11,6 +11,7 @@ public class Blog:BaseEntity
     public AppUser AppUser { get; set; }
     public IEnumerable<BlogCategory> BlogCategories { get; set; }
     public List<Comment> Comments { get; set; }
+    public IEnumerable<BlogLike> Likes { get; set; }
 
 
 }

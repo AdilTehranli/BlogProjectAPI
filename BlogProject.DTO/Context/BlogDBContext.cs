@@ -15,6 +15,7 @@ public class BlogDBContext : IdentityDbContext
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<BlogCategory> BlogCategories { get; set; }
     public DbSet<Comment> Comments { get; set; }
+    public DbSet<BlogLike> BlogLikes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //We can use it:  //modelbuilder.applyconfigurationsfromassembly(typeof(CategoryConfiguration).Assembly);

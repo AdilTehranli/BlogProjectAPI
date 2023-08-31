@@ -12,7 +12,7 @@ public class BlogConfiguration : IEntityTypeConfiguration<Blog>
        builder.Property(b=>b.Description).IsRequired().HasMaxLength(255);
         builder.Property(b => b.CoverImageUrl).IsRequired();
         builder.Property(b => b.ViewewCount).HasDefaultValue(0);
-        builder.Property(b=>b.CreatedTime).HasDefaultValue(DateTime.UtcNow);
+        builder.Property(b=>b.CreatedTime).HasDefaultValueSql("getutcdate()");
         builder.HasOne(b => b.AppUser).WithMany(u => u.Blogs).HasForeignKey(b => b.AppUserId);
 
     }

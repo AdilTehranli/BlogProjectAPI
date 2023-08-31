@@ -1,4 +1,5 @@
 ﻿using BlogProject.Business.Dtos.BlogDtos;
+using BlogProject.Business.Dtos.CommentDtos;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -36,8 +37,14 @@ namespace BlogProject.API.Controllers
             await _blogService.DeleteAsync(id);
             return StatusCode(StatusCodes.Status202Accepted);
         }
+        [HttpPost("{id}")]
+        public async Task<IActionResult> CommentCreate(int id,CommentCreateDto dto)
+        {
+            await _commentService.CreateAsync(id,dto);
+            return Ok();
+        }
         [HttpPost]
-
+        
         public async Task<IActionResult> Post(BlogCreateDto dto)
         {
             try

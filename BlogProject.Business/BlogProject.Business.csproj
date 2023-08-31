@@ -16,4 +16,8 @@
     <ProjectReference Include="..\BlogProject.DTO\BlogProject.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\BlogLikeDtos\" />
+  </ItemGroup>
+
 </Project>

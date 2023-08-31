@@ -41,7 +41,7 @@ namespace BlogProject.DAL.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 29, 18, 58, 24, 220, DateTimeKind.Utc).AddTicks(2748));
+                        .HasDefaultValueSql("getutcdate()");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -91,6 +91,36 @@ namespace BlogProject.DAL.Migrations
                     b.ToTable("BlogCategories");
                 });
 
+            modelBuilder.Entity("BlogProject.Core.Entities.BlogLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Reaction")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("BlogLikes");
+                });
+
             modelBuilder.Entity("BlogProject.Core.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -134,7 +164,7 @@ namespace BlogProject.DAL.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 29, 18, 58, 24, 220, DateTimeKind.Utc).AddTicks(3684));
+                        .HasDefaultValueSql("getutcdate()");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -411,6 +441,25 @@ namespace BlogProject.DAL.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("BlogProject.Core.Entities.BlogLike", b =>
+                {
+                    b.HasOne("BlogProject.Core.Entities.AppUser", "AppUser")
+                        .WithMany("Likes")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlogProject.Core.Entities.Blog", "Blog")
+                        .WithMany("Likes")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Blog");
+                });
+
             modelBuilder.Entity("BlogProject.Core.Entities.Comment", b =>
                 {
                     b.HasOne("BlogProject.Core.Entities.AppUser", "AppUser")
@@ -492,6 +541,8 @@ namespace BlogProject.DAL.Migrations
                     b.Navigation("BlogCategories");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Likes");
                 });
 
             modelBuilder.Entity("BlogProject.Core.Entities.Category", b =>
@@ -509,6 +560,8 @@ namespace BlogProject.DAL.Migrations
                     b.Navigation("Blogs");
 
                     b.Navigation("Comments");
+
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }

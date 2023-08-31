@@ -69,7 +69,8 @@ public class BlogService : IBlogService
 
     public async Task<BlogDetailDto> GetByIdAsync(int id)
     {
-        var entity = await _blogRepository.FindByIdAsync(id);
+        var entity = await _blogRepository.FindByIdAsync(id,
+            "AppUser", "BlogCategories", "BlogCategories.Category");
         if (entity != null) throw new NotFoundException<Blog>();
         entity.ViewewCount++;
         await _blogRepository.SaveAsync();
