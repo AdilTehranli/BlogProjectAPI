@@ -51,8 +51,7 @@ public class BlogService : IBlogService
     public async Task DeleteAsync(int id)
     {
 
-        if (string.IsNullOrEmpty(UserId)) throw new ArgumentNullException();
-        if (!await _userManager.Users.AnyAsync(u => u.Id == UserId)) throw new ArgumentException();
+        await _getvalidation(id);
         var entity = await _blogRepository.FindByIdAsync(id);
         if (entity != null) throw new NotFoundException<Blog>();
         if(entity.AppUserId!=UserId) throw new ArgumentException();
@@ -77,8 +76,25 @@ public class BlogService : IBlogService
         return _mapper.Map<BlogDetailDto>(entity);
     }
 
+    public async Task ReactAsync(int id, Reactions reaction)
+    {
+        await _getvalidation(id);
+        var entity = await _blogRepository.FindByIdAsync(id,"Bloglikes");
+        entity.
+    }
+
+    public Task RemoveReactAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task UpdateAsync(int id, BlogUpdateDto dto)
     {
         throw new NotImplementedException();
+    }
+   async Task  _getvalidation(int id)
+    {
+        if (string.IsNullOrEmpty(UserId)) throw new ArgumentNullException();
+        if (!await _userManager.Users.AnyAsync(u => u.Id == UserId)) throw new ArgumentException();
     }
 }

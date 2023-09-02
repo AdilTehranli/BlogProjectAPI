@@ -106,9 +106,6 @@ namespace BlogProject.DAL.Migrations
                     b.Property<int>("BlogId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Reaction")
                         .HasColumnType("int");
 
