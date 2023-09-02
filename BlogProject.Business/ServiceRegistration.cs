@@ -18,8 +18,8 @@ public static class ServiceRegistration
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ITokenService, TokenService>();
-        services.AddScoped<IUserRoleService, UserRoleService>();
         services.AddScoped<IBlogService, BlogService>();
+        services.AddScoped<IRoleService, RoleService>();
         services.AddScoped<ICommentService,CommentService>();
         services.AddHttpContextAccessor();
 

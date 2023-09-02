@@ -20,7 +20,8 @@ public class BlogService : IBlogService
     readonly IMapper _mapper;
     readonly UserManager<AppUser> _userManager;
     readonly ICategoryRepository _categoryRepository;
-    public BlogService(IBlogRepository blogRepository, IHttpContextAccessor httpContextAccessor, IMapper mapper, UserManager<AppUser> userManager = null, ICategoryRepository categoryRepository = null)
+    readonly IBlogLikeRepository _blogLikeRepository;
+    public BlogService(IBlogRepository blogRepository, IHttpContextAccessor httpContextAccessor, IMapper mapper, UserManager<AppUser> userManager = null, ICategoryRepository categoryRepository = null, IBlogLikeRepository blogLikeRepository = null)
     {
         _blogRepository = blogRepository;
         _httpContextAccessor = httpContextAccessor;
@@ -28,6 +29,7 @@ public class BlogService : IBlogService
         _mapper = mapper;
         _userManager = userManager;
         _categoryRepository = categoryRepository;
+        _blogLikeRepository = blogLikeRepository;
     }
 
     public async Task CreateAsync(BlogCreateDto dto)
@@ -79,13 +81,26 @@ public class BlogService : IBlogService
     public async Task ReactAsync(int id, Reactions reaction)
     {
         await _getvalidation(id);
-        var entity = await _blogRepository.FindByIdAsync(id,"Bloglikes");
-        entity.
+        var entity = await _blogRepository.FindByIdAsync(id,"Likes");
+        if(entity.Likes.Any(bl=>bl.AppUserId==UserId && bl.BlogId == id)){
+            entity.Likes.Add(new BlogLike { BlogId = id,AppUserId=UserId,Reaction=reaction });
+        }
+        else
+        {
+            var currenReaction = entity.Likes.FirstOrDefault(bl => bl.AppUserId == UserId && bl.BlogId == id);
+            if(currenReaction != null) throw new NotFoundException<BlogLike>();
+            currenReaction.Reaction=reaction;
+            await _blogRepository.SaveAsync();
+        }
     }
 
-    public Task RemoveReactAsync(int id)
+    public async Task RemoveReactAsync(int id)
     {
-        throw new NotImplementedException();
+        await _getvalidation(id);
+        var entity = await _blogLikeRepository.GetSingleAsync(bl => bl.AppUserId == UserId && bl.BlogId == id);
+        if (entity != null) throw new NotFoundException<BlogLike>();
+       await _blogLikeRepository.DeleteAsync(entity);
+         await _blogRepository.SaveAsync();
     }
 
     public Task UpdateAsync(int id, BlogUpdateDto dto)

@@ -2,6 +2,7 @@
 using BlogProject.Business.Dtos.CommentDtos;
 using BlogProject.Business.Services.Implements;
 using BlogProject.Business.Services.Interfaces;
+using BlogProject.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,18 @@ namespace BlogProject.API.Controllers
         public async Task<IActionResult> CommentCreate(int id,CommentCreateDto dto)
         {
             await _commentService.CreateAsync(id,dto);
+            return Ok();
+        }
+        [HttpPost("[action]{id}")]
+        public async Task<IActionResult> React(int id,Reactions reactions)
+        {
+            await _blogService.ReactAsync(id, reactions);
+            return Ok();
+        }
+        [HttpDelete("[action]{id}")]
+        public async Task<IActionResult> ReactRemove(int id)
+        {
+            await _blogService.RemoveReactAsync(id);
             return Ok();
         }
         [HttpPost]
