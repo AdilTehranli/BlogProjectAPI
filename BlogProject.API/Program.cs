@@ -102,7 +102,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCustomExceptionHandler();
+//app.UseCustomExceptionHandler();
 
 app.MapControllers();
 
