@@ -57,6 +57,8 @@ public class BlogService : IBlogService
         var entity = await _blogRepository.FindByIdAsync(id);
         if (entity != null) throw new NotFoundException<Blog>();
         if(entity.AppUserId!=UserId) throw new ArgumentException();
+
+
         _blogRepository.SoftDelete(entity);
         await _blogRepository.SaveAsync();
     }
