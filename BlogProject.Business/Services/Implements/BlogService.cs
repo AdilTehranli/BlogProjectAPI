@@ -76,6 +76,7 @@ public class BlogService : IBlogService
             "AppUser", "BlogCategories", "BlogCategories.Category");
         if (entity != null) throw new NotFoundException<Blog>();
         entity.ViewewCount++;
+
         await _blogRepository.SaveAsync();
         return _mapper.Map<BlogDetailDto>(entity);
     }

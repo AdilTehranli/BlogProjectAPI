@@ -25,6 +25,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEnti
     public async Task DeleteAsync(TEntity entity)
     {
        _context.Remove(entity);
+        _context.SaveChanges();
     }
 
     public  IQueryable<TEntity> FindAll(Expression<Func<TEntity, bool>> expression, params string[] includes)
